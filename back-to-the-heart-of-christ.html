@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Divine Mercy for Srilanka</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body id="dmforchildren">
+		<!-- Header -->
+		<div id="header1" class="alt">
+			<!-- <div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div> -->
+			<a href="#menu"><i class="fas fa-bars"></i>Menu</a>
+		</div>
+
+	<!-- Nav -->
+		<nav id="menu">
+			<ul class="links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="divine-mercy-for-children-articles.html">Divine Mercy For Children</a></li>
+				<li><a href="back-to-the-heart-of-christ.html">Back to Heart of Christ</a></li>
+				<li><a href="calling-of-holy-mother-articles.html">Calling of Holy Mother Mary</a></li>
+                <li><a href="divine-mercy-for-children-charity-services.html">Charity Services</a></li>
+                <li><a href="our-projects.html">Our Projects</a></li>
+				<li><a href="contact-us.html">Contact Us</a></li>
+			</ul>
+		</nav>
+        <header id="header" class="alt heartofchristmain">
+            <div class="inner">
+                <!-- <h1>Back To The Heart Of Christ</h1> -->
+                <!-- <p>Take a U Turn With Jesus</p> -->
+            </div>
+        </header>
+        
+        <div id="wrapper">
+            <!-- <section id="intro" class="main">
+                <h2>Divine Mercy for Sri Lanka</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae<br />
+                malesuada turpis. Nam pellentesque in ac aliquam. Aliquam tempor<br />
+                mi porta egestas maximus lorem ipsum dolor.</p>
+            </section> -->
+            
+            <section id="back-to-heart-christ-posts" class="main items">
+                <!-- <article class="item">
+                    <header>
+                        <a href="divine-mercy-for-children-articles.html"><img src="images/jesus-with-children.jpg" alt="" /></a>
+                        <h3>Divine Mercy for Children</h3>
+                    </header>
+                    <p>He said to them, “Let the little children come to me, and do not hinder them, for the kingdom of God belongs to such as these.</p>
+
+                </article> -->
+            </section>
+        </div>
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>	
+        
+			<script>
+				window.fbAsyncInit = function() {
+				  FB.init({
+					appId            : '485886925758153', 
+					autoLogAppEvents : true,
+					xfbml            : true,
+					version          : 'v9.0'
+				  });
+				  FB.api(
+					'/101657408168200',
+					'GET',
+					{ "fields":"posts{attachments}",
+				  		"access_token":"EAAG56V2cXskBABwG5CwuAcQTlzbN9bOgElQNZAV4jWlRU7TMZAoWdq6tjlmYWxXIamS8WzykTvFkE6T2EJORcNjeuLhJofhakAH1Bg8dxPpgIZCmqFZCIsBmHb8RCE3NpOniXbYLstumK2hN3RHCbOdxsGiZCCIGwujEO3ZAZAUDB4RvX3A3puNCxxXysyJesYZD"
+					},
+					function(response) {
+
+                        newPosts = response.posts.data
+                        console.log(response)
+                        
+                        for (const key in newPosts) {
+                            if(newPosts[key].attachments != undefined){
+                                // console.log(newPosts[key].attachments.data[0])
+                                document.getElementById("back-to-heart-christ-posts").innerHTML += 
+                                `<article class="item">
+                                    <header>
+                                        <img src="${newPosts[key].attachments.data[0].media.image.src}" alt="" /></header>
+                                    <p>${newPosts[key].attachments.data[0].description}</p>
+                                        `
+
+                            }
+                           
+                        }
+                        
+                        
+
+					}
+					);
+				};
+			  </script>
+			  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    </body>
+</html>

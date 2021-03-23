@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Divine Mercy for Srilanka</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+	</head>
+	<body>
+		<!-- Header -->
+		<div id="header1" class="alt">
+			<!-- <div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div> -->
+			<a href="#menu"><i class="fas fa-bars"></i>Menu</a>
+		</div>
+
+	<!-- Nav -->
+		<nav id="menu">
+			<ul class="links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="divine-mercy-for-children-articles.html">Divine Mercy For Children</a></li>
+				<li><a href="back-to-the-heart-of-christ.html">Back to Heart of Christ</a></li>
+				<li><a href="calling-of-holy-mother-articles.html">Calling of Holy Mother Mary</a></li>
+				<li><a href="divine-mercy-for-children-charity-services.html">Charity Services</a></li>
+				<li><a href="our-projects.html">Our Projects</a></li>
+				<li><a href="contact-us.html">Contact Us</a></li>
+			</ul>
+		</nav>
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="inner">
+					<h1>Divine Mercy</h1>
+					<p>දෙවි සමිදාණන් වහන්සේ කොපමණ යහපත් ද.....</p>
+				</div>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Banner -->
+					<section id="intro" class="main">
+						<span class="icon fas fa-cross  major"></span>
+						<!-- <i class="fas fa-cross"></i> -->
+						<h2>Our Projects</h2>
+						<p>ජපමාල රැලිය මුදුකටුව පාතිමා දේවස්ථානය 09.10.2010</p>
+						<ul class="actions">
+							<!-- <li><a href="#" class="button big">Learn More</a></li> -->
+						</ul>
+					</section>
+
+				<!-- Main -->
+				
+					<section id="main" class="main">
+						<!-- <header>
+							<h2>Lorem ipsum dolor</h2>
+						</header>
+						<p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p> -->
+						<div class="gallery-container">
+							<div class="gallery-item" data-index="1">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (1).jpg">
+							</div>
+							<div class="gallery-item" data-index="2">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (2).jpg">
+							</div>
+							<div class="gallery-item" data-index="3">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (3).jpg">
+							</div>
+							<div class="gallery-item" data-index="4">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (4).jpg">
+							</div>
+							<div class="gallery-item" data-index="5">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (5).jpg">
+							</div>
+							<div class="gallery-item" data-index="6">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (6).jpg">
+							</div>
+							<div class="gallery-item" data-index="7">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (7).jpg">
+							</div>
+							<div class="gallery-item" data-index="8">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (8).jpg">
+							</div>
+							<div class="gallery-item" data-index="9">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (9).jpg">
+							</div>
+							<div class="gallery-item" data-index="10">
+								<img src="images/projects/japamala-raliya-09.10.2010/japamala-dhana (10).jpg">
+							</div>
+						</div>
+					
+					</section>
+
+					<script>
+						const galleryItem = document.getElementsByClassName("gallery-item");
+						const lightBoxContainer = document.createElement("div");
+						const lightBoxContent = document.createElement("div");
+						const lightBoxImg = document.createElement("img");
+						const lightBoxPrev = document.createElement("div");
+						const lightBoxNext = document.createElement("div");
+
+						lightBoxContainer.classList.add("lightbox");
+						lightBoxContent.classList.add("lightbox-content");
+						lightBoxPrev.classList.add("fa", "fa-angle-left", "lightbox-prev");
+						lightBoxNext.classList.add("fa", "fa-angle-right", "lightbox-next");
+
+						lightBoxContainer.appendChild(lightBoxContent);
+						lightBoxContent.appendChild(lightBoxImg);
+						lightBoxContent.appendChild(lightBoxPrev);
+						lightBoxContent.appendChild(lightBoxNext);
+
+						document.body.appendChild(lightBoxContainer);
+
+						let index = 1;
+
+						function showLightBox(n) {
+							if (n > galleryItem.length) {
+								index = 1;
+							} else if (n < 1) {
+								index = galleryItem.length;
+							}
+							let imageLocation = galleryItem[index-1].children[0].getAttribute("src");
+							lightBoxImg.setAttribute("src", imageLocation);
+						}
+
+						function currentImage() {
+							lightBoxContainer.style.display = "block";
+
+							let imageIndex = parseInt(this.getAttribute("data-index"));
+							showLightBox(index = imageIndex);
+						}
+						for (let i = 0; i < galleryItem.length; i++) {
+							galleryItem[i].addEventListener("click", currentImage);
+						}
+
+						function slideImage(n) {
+							showLightBox(index += n);
+						}
+						function prevImage() {
+							slideImage(-1);
+						}
+						function nextImage() {
+							slideImage(1);
+						}
+						lightBoxPrev.addEventListener("click", prevImage);
+						lightBoxNext.addEventListener("click", nextImage);
+
+						function closeLightBox() {
+							if (this === event.target) {
+								lightBoxContainer.style.display = "none";
+							}
+						}
+						lightBoxContainer.addEventListener("click", closeLightBox);
+					</script>
+				
+
+				<!-- Footer -->
+					<!-- <footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+					</footer> -->
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>		  
+
+	</body>
+</html>
