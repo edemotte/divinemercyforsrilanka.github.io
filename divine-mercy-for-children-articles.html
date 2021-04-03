@@ -73,6 +73,8 @@
 					},
 					function(response) {
 
+                        console.log(response)
+
                         newPosts = response.posts.data
                         
                         for (const key in newPosts) {
