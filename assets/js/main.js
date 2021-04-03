@@ -30,19 +30,21 @@
 				}, 100);
 
 				// Poptrox
-				$('.thumbnails').poptrox({
-					onPopupClose: function() { $body.removeClass('is-covered'); },
-					onPopupOpen: function() { $body.addClass('is-covered'); },
-					baseZIndex: 10001,
-					useBodyOverflow: false,
-					usePopupEasyClose: true,
-					overlayColor: '#000000',
-					overlayOpacity: 0.75,
-					popupLoaderText: '',
-					fadeSpeed: 500,
-					usePopupDefaultStyling: false,
-					windowMargin: (skel.breakpoint('small').active ? 5 : 50)
-				});
+				if (document.getElementById('divine-mercy-charity')) {
+					$('.thumbnails').poptrox({
+						onPopupClose: function() { $body.removeClass('is-covered'); },
+						onPopupOpen: function() { $body.addClass('is-covered'); },
+						baseZIndex: 10001,
+						useBodyOverflow: false,
+						usePopupEasyClose: true,
+						overlayColor: '#000000',
+						overlayOpacity: 0.75,
+						popupLoaderText: '',
+						fadeSpeed: 500,
+						usePopupDefaultStyling: false,
+						windowMargin: (skel.breakpoint('small').active ? 5 : 50)
+					});
+				}
 			});
 
 		// Fix: Placeholder polyfill.
@@ -91,19 +93,19 @@
 	if (skel.vars.IEVersion < 9)
 		$header.removeClass('alt');
 
-	if ($banner.length > 0
-	&&	$header.hasClass('alt')) {
+	// if ($banner.length > 0
+	// &&	$header.hasClass('alt')) {
 
-		$window.on('resize', function() { $window.trigger('scroll'); });
+	// 	$window.on('resize', function() { $window.trigger('scroll'); });
 
-		$banner.scrollex({
-			bottom:		$header.outerHeight(),
-			terminate:	function() { $header.removeClass('alt'); },
-			enter:		function() { $header.addClass('alt'); },
-			leave:		function() { $header.removeClass('alt'); $header.addClass('reveal'); }
-		});
+	// 	$banner.scrollex({
+	// 		bottom:		$header.outerHeight(),
+	// 		terminate:	function() { $header.removeClass('alt'); },
+	// 		enter:		function() { $header.addClass('alt'); },
+	// 		leave:		function() { $header.removeClass('alt'); $header.addClass('reveal'); }
+	// 	});
 
-	}
+	// }
 
 
 	});

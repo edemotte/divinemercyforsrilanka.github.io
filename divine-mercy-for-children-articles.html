@@ -74,7 +74,6 @@
 					function(response) {
 
                         newPosts = response.posts.data
-                        console.log(response)
                         
                         for (const key in newPosts) {
                             if(newPosts[key].attachments != undefined){
