@@ -58,6 +58,10 @@
         <script src="assets/js/main.js"></script>	
         
 			<script>
+
+                const access_token = "EAAG56V2cXskBAJwq7BUTr3uwmsS5o36kZCqZCaQdefFaH7jeHbnqk8g6BrgJ6zXnHRq944GCswrEuhNQeioQ1AmpuvOSs4pQZAbzt4FTbGMnjEmY7ADWMJKUGJDwJP7uCZBSBsvFXr3UAUNZBzK44UauEFVYRQJvMQhkX2f7sdJFYMQMWtiQl"
+
+
 				window.fbAsyncInit = function() {
 				  FB.init({
 					appId            : '485886925758153', 
@@ -69,7 +73,7 @@
 					'/174602543213772',
 					'GET',
 					{ "fields":"posts{attachments}",
-                    "access_token":"EAAG56V2cXskBAC4ZCh7MCetgtDvdDHaJEvZBfv09ApCT2PrthYOIZB1sBIQqhsN2sWyuZAUghRbOtGx25FuJSLD7E6MqySdTWETWWw3qdn2uVtZBpWl5pDUh23cLTBbJRSIjDF8mpJahWNlizPnLyHf0JRV1RZBPwD2LqCo6eOPXZBDHymOkVpQ6SZAkVyKSAnanC4MftF909FHM60pJZA8TB"
+                    "access_token":access_token
 					},
 					function(response) {
 
