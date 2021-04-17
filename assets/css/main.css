@@ -1167,6 +1167,55 @@ table.alt tbody tr td {
   border-color: #666666;
 }
 
+
+/* no padding or margin classes */
+
+.no-pad {
+  padding: 0;
+}
+
+.mo-margin {
+  margin: 0;
+}
+
+/* no padding or margin classes */
+
+/* Responsive Slider by 
+https://github.com/viljamis/ResponsiveSlides.js */
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+}
+/* Reponsive Slider */
+
 /* Item */
 
 .item {
