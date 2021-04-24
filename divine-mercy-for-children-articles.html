@@ -84,12 +84,15 @@
                         for (const key in newPosts) {
                             if(newPosts[key].attachments != undefined){
                                 // console.log(newPosts[key].attachments.data[0])
-                                document.getElementById("dm-for-children-posts").innerHTML += 
-                                `<article class="item">
-                                    <header>
-                                        <img src="${newPosts[key].attachments.data[0].media.image.src}" alt="" /></header>
-                                    <p>${newPosts[key].attachments.data[0].description}</p>
-                                        `
+                                
+                                if(newPosts[key].attachments.data[0].type != "native_templates"){
+                                    document.getElementById("dm-for-children-posts").innerHTML += 
+                                    `<article class="item">
+                                        <header>
+                                            <img src="${newPosts[key].attachments.data[0].media.image.src}" alt="" /></header>
+                                        <p>${newPosts[key].attachments.data[0].description}</p>
+                                            `
+                                }
 
                             }
                            
