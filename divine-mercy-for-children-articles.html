@@ -41,25 +41,45 @@
             </section> -->
             
             <section id="dm-for-children-posts" class="main items">
-                <!-- <article class="item">
-                    <header>
-                        <a href="divine-mercy-for-children-articles.html"><img src="images/jesus-with-children.jpg" alt="" /></a>
-                        <h3>Divine Mercy for Children</h3>
-                    </header>
-                    <p>He said to them, “Let the little children come to me, and do not hinder them, for the kingdom of God belongs to such as these.</p>
+                    <!-- <article class="item">
+                        <header>
+                            <a href="divine-mercy-for-children-articles.html"><img src="images/jesus-with-children.jpg" alt="" /></a>
+                            <h3>Divine Mercy for Children</h3>
+                        </header>
+                        <p>He said to them, “Let the little children come to me, and do not hinder them, for the kingdom of God belongs to such as these.</p>
 
-                </article> -->
+                    </article> -->
             </section>
         </div>
 
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/skel.min.js"></script>
         <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>	
-        
-			<script>
+        <script src="assets/js/main.js"></script>
+       
+        <script type="module">
+            import fbdata from "./data.json" assert { type: "json" };
+            // console.log(fbdata)
+            
+            const fbposts = fbdata.posts.data;            
 
-                const access_token = "EAAOKdFpokHQBAPuZCl6DZAPrdA4p7nigzPD22Kp9BoKYZB2wQgtdhA24UuDZCi6lIBuTgCMB17STAEn7koGGdZBe0uLPZAglwlHxso9skRoR0D8j4tZCEsZAbvVj4WrotPmiSGfIGPK5QkUWix5IjC2ZBJ6EXAf6rXkzK7pTimAhFpwugOYqZCjEC8El7ngAYqoFbbZBihxFfZB5TDD8entbC26q"
+            for (const key in fbposts) {
+                // console.log(fbposts[key].attachments.data[0].description)
+                    
+                        document.getElementById("dm-for-children-posts").innerHTML += 
+                        `<article class="item">
+                            <header>
+                                <img src="${fbposts[key].attachments.data[0].media.image.src}" alt="" /></header>
+                            <p>${fbposts[key].attachments.data[0].description}</p>
+                                `
+                
+            }
+        </script>
+
+
+			<!-- <script>
+
+                const access_token = "EAAOKdFpokHQBAECMsAMXF1lOM53JwrTtQtZC0CbQuyjAbPz0CpIeLOF7w4WdNssPc3Xm0zE7xOWJ93gmRNEZAzWgUmM0viFhjXjXE4EioWEAhjWRbSppbJbZCfof5EowNWuxyDN6Mxca3OXlBmncvrrwBSSK1MZAhpVRHh7384g510NPIgHXnSag8Is2asMZD"
 				window.fbAsyncInit = function() {
 				  FB.init({
 					appId            : '996657267773556', 
@@ -102,6 +122,9 @@
 					);
 				};
 			  </script>
-			  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+			  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
+
+
+
     </body>
 </html>
