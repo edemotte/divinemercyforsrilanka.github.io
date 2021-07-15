@@ -1,108 +1,95 @@
-(function($) {
+(function ($) {
+  skel.breakpoints({
+    xlarge: "(max-width: 1680px)",
+    large: "(max-width: 1280px)",
+    medium: "(max-width: 980px)",
+    small: "(max-width: 736px)",
+    xsmall: "(max-width: 480px)",
+    xxsmall: "(max-width: 360px)",
+  });
 
-	skel.breakpoints({
-		xlarge: '(max-width: 1680px)',
-		large: '(max-width: 1280px)',
-		medium: '(max-width: 980px)',
-		small: '(max-width: 736px)',
-		xsmall: '(max-width: 480px)',
-		xxsmall: '(max-width: 360px)'
-	});
+  $(function () {
+    var $window = $(window),
+      $header = $("#header1"),
+      $body = $("body");
 
-	$(function() {
+    // Disable animations/transitions until the page has loaded.
+    $body.addClass("is-loading");
 
-		var	$window = $(window),
-			$header = $('#header1'),
-			$body = $('body');
+    $window.on("load", function () {
+      window.setTimeout(function () {
+        $body.removeClass("is-loading");
+      }, 100);
 
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
+      // Poptrox
+      if (document.getElementById("divine-mercy-charity")) {
+        $(".thumbnails").poptrox({
+          onPopupClose: function () {
+            $body.removeClass("is-covered");
+          },
+          onPopupOpen: function () {
+            $body.addClass("is-covered");
+          },
+          baseZIndex: 10001,
+          useBodyOverflow: false,
+          usePopupEasyClose: true,
+          overlayColor: "#000000",
+          overlayOpacity: 0.75,
+          popupLoaderText: "",
+          fadeSpeed: 500,
+          usePopupDefaultStyling: false,
+          windowMargin: skel.breakpoint("small").active ? 5 : 50,
+        });
+      }
+    });
 
-			$window.on('load', function() {
-				window.setTimeout(function() {
-					$body.removeClass('is-loading');
-				}, 100);
+    // Fix: Placeholder polyfill.
+    $("form").placeholder();
 
-				// Poptrox
-				if (document.getElementById('divine-mercy-charity')) {
-					$('.thumbnails').poptrox({
-						onPopupClose: function() { $body.removeClass('is-covered'); },
-						onPopupOpen: function() { $body.addClass('is-covered'); },
-						baseZIndex: 10001,
-						useBodyOverflow: false,
-						usePopupEasyClose: true,
-						overlayColor: '#000000',
-						overlayOpacity: 0.75,
-						popupLoaderText: '',
-						fadeSpeed: 500,
-						usePopupDefaultStyling: false,
-						windowMargin: (skel.breakpoint('small').active ? 5 : 50)
-					});
-				}
-			});
+    // Prioritize "important" elements on medium.
+    skel.on("+medium -medium", function () {
+      $.prioritize(".important\\28 medium\\29", skel.breakpoint("medium").active);
+    });
 
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
+    // Items.
+    $(".item").each(function () {
+      var $this = $(this),
+        $header = $this.find("header"),
+        $a = $header.find("a"),
+        $img = $header.find("img");
 
-		// Prioritize "important" elements on medium.
-			skel.on('+medium -medium', function() {
-				$.prioritize(
-					'.important\\28 medium\\29',
-					skel.breakpoint('medium').active
-				);
-			});
+      // Set background.
+      $a.css("background-image", "url(" + $img.attr("src") + ")");
 
-		// Items.
-			$('.item').each(function() {
+      // Remove original image.
+      $img.remove();
+    });
 
-				var $this = $(this),
-					$header = $this.find('header'),
-					$a = $header.find('a'),
-					$img = $header.find('img');
+    // Menu.
+    $("#menu").append('<a href="#menu" class="close"><i class="fas fa-times"></i></a>').appendTo($body).panel({
+      delay: 500,
+      hideOnClick: true,
+      hideOnSwipe: true,
+      resetScroll: true,
+      resetForms: true,
+      side: "right",
+    });
 
-				// Set background.
-					// $a.css('background-image', 'url(' + $img.attr('src') + ')');
+    // Header.
+    if (skel.vars.IEVersion < 9) $header.removeClass("alt");
 
-				// Remove original image.
-					// $img.remove();
+    // if ($banner.length > 0
+    // &&	$header.hasClass('alt')) {
 
-			});
+    // 	$window.on('resize', function() { $window.trigger('scroll'); });
 
-			
-		// Menu.
-		$('#menu')
-		.append('<a href="#menu" class="close"><i class="fas fa-times"></i></a>')
-		.appendTo($body)
-		.panel({
-			delay: 500,
-			hideOnClick: true,
-			hideOnSwipe: true,
-			resetScroll: true,
-			resetForms: true,
-			side: 'right'
-		});
-		
+    // 	$banner.scrollex({
+    // 		bottom:		$header.outerHeight(),
+    // 		terminate:	function() { $header.removeClass('alt'); },
+    // 		enter:		function() { $header.addClass('alt'); },
+    // 		leave:		function() { $header.removeClass('alt'); $header.addClass('reveal'); }
+    // 	});
 
-// Header.
-	if (skel.vars.IEVersion < 9)
-		$header.removeClass('alt');
-
-	// if ($banner.length > 0
-	// &&	$header.hasClass('alt')) {
-
-	// 	$window.on('resize', function() { $window.trigger('scroll'); });
-
-	// 	$banner.scrollex({
-	// 		bottom:		$header.outerHeight(),
-	// 		terminate:	function() { $header.removeClass('alt'); },
-	// 		enter:		function() { $header.addClass('alt'); },
-	// 		leave:		function() { $header.removeClass('alt'); $header.addClass('reveal'); }
-	// 	});
-
-	// }
-
-
-	});
-
-
+    // }
+  });
 })(jQuery);
