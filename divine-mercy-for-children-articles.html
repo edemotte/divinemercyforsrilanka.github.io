@@ -41,14 +41,12 @@
             </section> -->
             
             <section id="dm-for-children-posts" class="main items">
-                    <!-- <article class="item">
-                        <header>
-                            <a href="divine-mercy-for-children-articles.html"><img src="images/jesus-with-children.jpg" alt="" /></a>
-                            <h3>Divine Mercy for Children</h3>
-                        </header>
-                        <p>He said to them, “Let the little children come to me, and do not hinder them, for the kingdom of God belongs to such as these.</p>
-
-                    </article> -->
+                    <article class="item">
+                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FDMforChildren%2Fposts%2F764576080883079&show_text=true&width=500" width="500" height="430" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </article>
+                    <article class="item">
+                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FDMforChildren%2Fposts%2F751340645539956&show_text=true&width=500" width="500" height="588" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </article>
             </section>
         </div>
 
@@ -57,27 +55,48 @@
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
        
-        <!-- <script type="module">
-            import fbdata from "./data.json" assert { type: "json" };
-            // console.log(fbdata)
-            
-            const fbposts = fbdata.posts.data;            
-
-            for (const key in fbposts) {
-                // console.log(fbposts[key].attachments.data[0].description)
+        <script type="module">
+            $.getJSON("./data.json", function(json) {
+                    console.log(json.posts.data); // this will show the info it in firebug console
                     
-                        document.getElementById("dm-for-children-posts").innerHTML += 
-                        `<article class="item">
-                            <header>
-                                <a><img src="${fbposts[key].attachments.data[0].media.image.src}" alt="" /></a></header>
-                            <p>${fbposts[key].attachments.data[0].description}</p>
-                                `
+                for (const key in json.posts.data) {
+                    // console.log(fbposts[key].attachments.data[0].description)
+                        
+                            document.getElementById("dm-for-children-posts").innerHTML += 
+                            `<article class="item">
+                                <header style="height:${json.posts.data[key].attachments.data[0].media.image.height}px">
+                                    <a><img src="${json.posts.data[key].attachments.data[0].media.image.src}" alt="" /></a></header>
+                                <p>${json.posts.data[key].attachments.data[0].description}</p>
+                                    `
+                    
+                }
+                // for (const key in json.posts.data) {
+                //     console.log("test", json.posts.data[key])
+                        
+              
+                    
+                // }
+            });
+            // import fbdata from "./data.json" assert { type: "json" };
+            // // console.log(fbdata)
+            
+            // const fbposts = fbdata.posts.data;            
+
+            // for (const key in fbposts) {
+            //     // console.log(fbposts[key].attachments.data[0].description)
+                    
+            //             document.getElementById("dm-for-children-posts").innerHTML += 
+            //             `<article class="item">
+            //                 <header>
+            //                     <a><img src="${fbposts[key].attachments.data[0].media.image.src}" alt="" /></a></header>
+            //                 <p>${fbposts[key].attachments.data[0].description}</p>
+            //                     `
                 
-            }
-        </script> -->
+            // }
+        </script>
 
 
-			 <script>
+			 <!-- <script>
 
                 const access_token = "EAAG56V2cXskBAFsczdmZBOuOpFt7569iz455sTdFzYsDmSOvP2iEy2HxqklasIeE95oCte2VSDT0cs0Guuy9a0r3IZBHloD033d44yqZAopvZBC4VV7bCPAOBXimDjPpfWDmqhMgBtvFNFqlmWuIYcMZCJOO0cMrKClx6BvYJ59jXD0EzWfD3FaY708ZARmFIZD"
 				window.fbAsyncInit = function() {
@@ -122,7 +141,7 @@
 					);
 				};
 			  </script>
-			  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+			  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
 
 
 
