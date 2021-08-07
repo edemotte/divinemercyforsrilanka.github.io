@@ -78,10 +78,27 @@
             }
         </script> -->
 
+        <script type="module">
+            $.getJSON("./data2.json", function(json) {
+                    console.log(json.posts.data); // this will show the info it in firebug console
+                    
+                for (const key in json.posts.data) {
+                    // console.log(fbposts[key].attachments.data[0].description)
+                        
+                            document.getElementById("calling-mother-mary-posts").innerHTML += 
+                            `<article class="item">
+                                <header style="height:${json.posts.data[key].attachments.data[0].media.image.height}px">
+                                    <a><img src="${json.posts.data[key].attachments.data[0].media.image.src}" alt="" /></a></header>
+                                <p>${json.posts.data[key].attachments.data[0].description}</p>
+                                    `
+                    
+                }
+            });
 
-    <script>
+        </script>
+    <!-- <script>
 
-        const access_token = "EAAG56V2cXskBAHZCNhQjkCrhRjq9ysmmBWwSC7i5S9o0FphiuYQS9VuFX4WlN0n4ZC5x0SiKtxuxK6pJZBNecboFsnUnmgWQjPiyKPO6LxKEVfMmts3ylnVvr3Q1n42vISifNEvxJtaBZBZCDrR79AxEiQT3fIWNZAsJUtaxGlMVFnX4TWbOn9sHrwU77MYQcv3VYd4mF0ygZDZD"
+        const access_token = "EAAG56V2cXskBAExzcdZA7w4vZBFKdXLCnjR3CazGSltycd30CQS15pDcqcU65utK7UJeJsYWOO09qoSaKfbnsfmccqs4sRQCsAK7gN7UjWq3PbKfEhEgZCXyHXxl2n2SsAV0GY2slAFALptZCTg4BdhgRPO4XYeHnTqk6fQ06n8ZAf73X38GEE0N3YykasFmoXGER0H44MegDSf8yhdsaCoZCxACb4VDcZD"
 
         window.fbAsyncInit = function () {
             FB.init({
@@ -124,7 +141,7 @@
             );
         };
     </script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
 </body>
 
 </html>

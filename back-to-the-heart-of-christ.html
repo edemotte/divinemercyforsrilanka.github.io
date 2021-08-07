@@ -75,8 +75,46 @@
                 
             }
         </script> -->
-        
-			<script>
+        <script type="module">
+            $.getJSON("./data3.json", function(json) {
+                    console.log(json.posts.data); // this will show the info it in firebug console
+                    
+                for (const key in json.posts.data) {
+                    // console.log(fbposts[key].attachments.data[0].description)
+                        
+                            document.getElementById("back-to-heart-christ-posts").innerHTML += 
+                            `<article class="item">
+                                <header style="height:${json.posts.data[key].attachments.data[0].media.image.height}px">
+                                    <a><img src="${json.posts.data[key].attachments.data[0].media.image.src}" alt="" /></a></header>
+                                <p>${json.posts.data[key].attachments.data[0].description}</p>
+                                    `
+                    
+                }
+                // for (const key in json.posts.data) {
+                //     console.log("test", json.posts.data[key])
+                        
+              
+                    
+                // }
+            });
+            // import fbdata from "./data.json" assert { type: "json" };
+            // // console.log(fbdata)
+            
+            // const fbposts = fbdata.posts.data;            
+
+            // for (const key in fbposts) {
+            //     // console.log(fbposts[key].attachments.data[0].description)
+                    
+            //             document.getElementById("dm-for-children-posts").innerHTML += 
+            //             `<article class="item">
+            //                 <header>
+            //                     <a><img src="${fbposts[key].attachments.data[0].media.image.src}" alt="" /></a></header>
+            //                 <p>${fbposts[key].attachments.data[0].description}</p>
+            //                     `
+                
+            // }
+        </script>
+			<!-- <script>
 
                 const access_token = "EAAG56V2cXskBAE3pMgK7noZBPyOS5hrr0SyqjFxPpUsBRTJh9udowTSNIii9BftwzuWyjTxQ0LJfNBjJaDDV2zCxAm8QjYNhWP0hmhMvuB5m8MVB6qUyaA8vHzWOzQYbpMNbZCOVZBwMpnFXyC2EWKDTnfBcTDbpf6FLY5pGQwXWOXbLot6KkZCEva43eo0ZD"
 
@@ -119,6 +157,6 @@
 					);
 				};
 			  </script>
-			  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+			  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
     </body>
 </html>
